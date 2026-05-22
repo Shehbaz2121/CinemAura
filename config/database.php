@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$user = "root";       // default WAMP username
-$password = "";       // default WAMP password (empty)
+$user = "root";       
+$password = "";       
 $database = "movie_booking";
 
 $conn = mysqli_connect($host, $user, $password, $database);
