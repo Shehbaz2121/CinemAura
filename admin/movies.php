@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <?php require '../includes/admin-header.php'; ?>
+    <!-- <?php require '../includes/admin-header.php'; ?> -->
     <?php if(isset($success)): ?>
     <p><?= $success ?></p>
         <?php endif; ?>
