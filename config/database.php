@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";       
 $password = "";       
-$database = "movie_booking";
+$database = "cinemaura";
 
 $conn = mysqli_connect($host, $user, $password, $database);
 

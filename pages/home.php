@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
   </style>
 </head>
 <body>
-<?php require '../includes/header.html'; ?>
+<?php require '../includes/header.php'; ?>
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
@@ -36,8 +36,8 @@
       Book your seats in seconds. Watch trailers, read reviews, and choose from Gold, Platinum or Box — all from your couch.
     </p>
     <div class="hero-actions">
-      <a href="pages/movies.php" class="btn btn-gold">Browse Movies</a>
-      <a href="auth/register.php" class="btn btn-outline">Create Account</a>
+      <a href="movies.php" class="btn btn-gold">Browse Movies</a>
+      <a href="../auth/register.php" class="btn btn-outline">Create Account</a>
     </div>
     <div class="hero-stats">
       <div>
