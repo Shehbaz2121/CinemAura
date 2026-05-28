@@ -27,7 +27,7 @@ require '../config/database.php';
   <title>Admin Dashboard – CinemAura</title>
 </head>
 <body>
-
+  <?php require '../includes/admin-header.php'; ?>
   <h1>Admin Dashboard</h1>
   <p>Welcome, <?= $_SESSION['user_name'] ?></p>
 
