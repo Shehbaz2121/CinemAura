@@ -1,9 +1,10 @@
-
+/* assets/css/admin.css */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
   --gold: #e8b84b;
+  --gold-dim: #c9982a;
   --bg: #080a0e;
   --bg2: #0f1118;
   --bg3: #161922;
@@ -43,7 +44,7 @@ nav {
   text-decoration: none;
 }
 .logo span { color: var(--text); }
-.logo .admin-tag {
+.logo small {
   font-size: 11px;
   letter-spacing: 2px;
   color: var(--text-muted);
@@ -73,10 +74,6 @@ nav {
   color: var(--text);
   background: var(--bg3);
 }
-.nav-links a.active {
-  color: var(--gold);
-  background: rgba(232,184,75,0.08);
-}
 
 .nav-actions {
   display: flex;
@@ -88,11 +85,12 @@ nav {
   color: var(--text-muted);
 }
 
+/* ── BUTTONS ── */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 20px;
+  padding: 9px 22px;
   border-radius: 3px;
   font-family: 'DM Sans', sans-serif;
   font-size: 12px;
@@ -116,20 +114,20 @@ nav {
 .btn-gold {
   background: var(--gold);
   color: #080a0e;
+  font-weight: 600;
 }
-.btn-gold:hover { background: #f0c55a; }
+.btn-gold:hover { background: #f0c55a; transform: translateY(-1px); }
+.btn-gold:active { transform: translateY(0); }
 
 /* ── PAGE WRAPPER ── */
 .admin-wrap {
   padding: 100px 48px 60px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 /* ── PAGE HEADER ── */
-.page-header {
-  margin-bottom: 48px;
-}
+.page-header { margin-bottom: 40px; }
 .page-eyebrow {
   font-size: 11px;
   letter-spacing: 3px;
@@ -165,18 +163,17 @@ nav {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2px;
-  margin-bottom: 48px;
+  margin-bottom: 2px;
 }
-
 .stat-card {
   background: var(--bg2);
   padding: 32px 28px;
   position: relative;
   overflow: hidden;
   transition: background 0.2s;
+  cursor: pointer;
 }
 .stat-card:hover { background: var(--bg3); }
-
 .stat-card::before {
   content: '';
   position: absolute;
@@ -187,11 +184,7 @@ nav {
   transition: opacity 0.2s;
 }
 .stat-card:hover::before { opacity: 1; }
-
-.stat-icon {
-  font-size: 24px;
-  margin-bottom: 16px;
-}
+.stat-icon { font-size: 24px; margin-bottom: 16px; }
 .stat-num {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 52px;
@@ -223,7 +216,7 @@ nav {
 .quick-actions {
   background: var(--bg2);
   padding: 32px;
-  margin-bottom: 2px;
+  margin-top: 2px;
 }
 .quick-title {
   font-family: 'Bebas Neue', sans-serif;
@@ -232,11 +225,7 @@ nav {
   color: var(--text);
   margin-bottom: 20px;
 }
-.actions-grid {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+.actions-grid { display: flex; gap: 12px; flex-wrap: wrap; }
 .action-btn {
   display: inline-flex;
   align-items: center;
@@ -256,10 +245,171 @@ nav {
   background: rgba(232,184,75,0.05);
 }
 
+/* ── ALERTS ── */
+.alert {
+  padding: 14px 18px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.alert-success {
+  background: rgba(76,175,130,0.08);
+  border: 1px solid rgba(76,175,130,0.25);
+  color: var(--green);
+}
+.alert-error {
+  background: rgba(224,85,85,0.08);
+  border: 1px solid rgba(224,85,85,0.25);
+  color: var(--red);
+}
+
+/* ── ADMIN CARD ── */
+.admin-card {
+  background: var(--bg2);
+  padding: 36px;
+  margin-bottom: 2px;
+}
+.card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--text);
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* ── FORM ── */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.field label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+} 
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: rgba(232,184,75,0.5);
+  background: #1a1e28;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #3a3d45;
+}
+.field select option {
+  background: var(--bg3);
+  color: var(--text);
+}
+.field input[type="file"] {
+  padding: 10px 14px;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+.field input[type="date"],
+.field input[type="time"] {
+  color-scheme: dark;
+}
+
+/* ── TABLE ── */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.admin-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+.admin-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.admin-table td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(30,34,44,0.6);
+  color: var(--text);
+  vertical-align: middle;
+}
+.admin-table tbody tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── BADGES ── */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.badge-green { background: rgba(76,175,130,0.1); color: #4caf82; border: 1px solid rgba(76,175,130,0.2); }
+.badge-gold  { background: rgba(232,184,75,0.1);  color: var(--gold); border: 1px solid rgba(232,184,75,0.2); }
+
+/* ── DELETE BTN ── */
+.btn-delete {
+  font-size: 12px;
+  color: var(--red);
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid rgba(224,85,85,0.25);
+  border-radius: 3px;
+  background: rgba(224,85,85,0.05);
+  transition: all 0.2s;
+}
+.btn-delete:hover {
+  background: rgba(224,85,85,0.15);
+  border-color: var(--red);
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   nav { padding: 16px 24px; }
   .nav-links { display: none; }
   .admin-wrap { padding: 80px 24px 40px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-row { grid-template-columns: 1fr; }
 }
