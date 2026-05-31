@@ -36,6 +36,13 @@ $theater_result = mysqli_query($conn, "SELECT * FROM theaters");
     <title>Document</title>
 </head>
 <body>
+    <?php if(isset($success)): ?>
+    <p><?= $success ?></p>
+        <?php endif; ?>
+
+        <?php if(isset($error)): ?>
+    <p><?= $error ?></p>
+        <?php endif; ?>
     <form action="" method="post">
  <label for="name">Name</label>
  <input type="text" name="name">
