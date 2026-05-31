@@ -2,6 +2,13 @@
 require '../includes/admin-check.php';
 require '../config/database.php';
 
+if(isset($_GET['delete'])){
+    $id = $_GET['delete'];
+    $stmt = mysqli_prepare($conn, "DELETE FROM movies WHERE id = ?");
+    mysqli_stmt_bind_param($stmt, 'i', $id);
+    mysqli_stmt_execute($stmt);
+}
+
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $title       = trim($_POST['title']);
     $genre       = trim($_POST['genre']);
@@ -25,6 +32,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $error = "Something went wrong. Please try again.";
     }
     }
+    $movies_result = mysqli_query($conn, "SELECT * FROM movies");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,5 +74,26 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         </select>
         <button type="submit">Add Movie</button>
     </form>
+
+    <h2>All Movies</h2>
+    <table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Year</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    <?php while($movie = mysqli_fetch_assoc($movies_result)): ?>
+    <tr>
+        <td><?= $movie['title'] ?></td>
+        <td><?= $movie['genre'] ?></td>
+        <td><?= $movie['year'] ?></td>
+        <td><?= $movie['status'] ?></td>
+        <td><a href="?delete=<?= $movie['id'] ?>">Delete</a></td>
+    </tr>
+    <?php endwhile; ?>
+</table>
+
 </body>
 </html>
