@@ -12,7 +12,10 @@
     <?php if(isset($_SESSION['user_id'])): ?>
           <a href="#">Welcome, <?= $_SESSION['user_name'] ?></a>
           <a href="../auth/logout.php" class="btn btn-gold">Logout</a>
-    <?php else: ?>
+        <?php if($_SESSION['user_role'] === 'admin'): ?>
+          <a href="../admin/index.php" class="btn btn-gold">Dashboard</a>
+          <?php endif; ?>
+          <?php else: ?>
         <a href="../auth/login.php" class="btn btn-outline">Sign In</a>
         <a href="../auth/register.php" class="btn btn-gold">Register</a>
 
