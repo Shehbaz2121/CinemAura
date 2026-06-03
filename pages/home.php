@@ -169,8 +169,8 @@
   <h2>READY TO <span>BOOK?</span></h2>
   <p>Create a free account and start booking your cinema experience today.</p>
   <div class="cta-actions">
-    <a href="auth/register.php" class="btn btn-gold">Get Started Free</a>
-    <a href="pages/movies.php" class="btn btn-outline">Browse Movies</a>
+    <a href="../auth/register.php" class="btn btn-gold">Get Started Free</a>
+    <a href="../pages/movies.php" class="btn btn-outline">Browse Movies</a>
   </div>
 </section>
 
