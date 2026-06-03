@@ -1,9 +1,9 @@
 
 <link rel="stylesheet" href="../assets/css/homenavfoot.css">
 <nav>
-  <a href="#" class="logo">Cinem<span>Aura</span></a>
+  <a href="../index.php" class="logo">Cinem<span>Aura</span></a>
   <ul class="nav-links">
-    <li><a href="#">Movies</a></li>
+    <li><a href="movies.php">Movies</a></li>
     <li><a href="#">Theaters</a></li>
     <li><a href="showtimes.php">Showtimes</a></li>
     <li><a href="#">Reviews</a></li>
