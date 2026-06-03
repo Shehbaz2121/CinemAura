@@ -5,7 +5,7 @@
   <ul class="nav-links">
     <li><a href="#">Movies</a></li>
     <li><a href="#">Theaters</a></li>
-    <li><a href="#">Showtimes</a></li>
+    <li><a href="showtimes.php">Showtimes</a></li>
     <li><a href="#">Reviews</a></li>
   </ul>
   <div class="nav-actions">
