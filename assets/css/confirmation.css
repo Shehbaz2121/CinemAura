@@ -1,0 +1,159 @@
+
+        body { padding-top: 80px; }
+
+        .confirm-wrap {
+            max-width: 580px;
+            margin: 60px auto;
+            padding: 0 24px;
+            text-align: center;
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .confirm-icon { font-size: 64px; margin-bottom: 24px; }
+
+        .confirm-eyebrow {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #4caf82;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .confirm-eyebrow::before,
+        .confirm-eyebrow::after {
+            content: '';
+            display: block;
+            width: 24px; height: 1px;
+            background: #4caf82;
+        }
+
+        .confirm-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 52px;
+            letter-spacing: 2px;
+            color: var(--text);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .confirm-title span { color: var(--gold); }
+
+        .confirm-sub {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .ticket {
+            background: #0f1118;
+            border: 1px solid #1e222c;
+            border-radius: 4px;
+            overflow: hidden;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .ticket-header {
+            background: var(--gold);
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .ticket-movie {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+            color: #080a0e;
+        }
+        .ticket-status {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: #080a0e;
+            color: var(--gold);
+            padding: 4px 12px;
+            border-radius: 2px;
+        }
+
+        .ticket-body {
+            padding: 28px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .ticket-field label {
+            display: block;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+        .ticket-field span {
+            font-size: 15px;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .ticket-divider {
+            border: none;
+            border-top: 1px dashed #1e222c;
+            margin: 0 28px;
+        }
+
+        .ticket-total {
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .ticket-total label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        .ticket-total span {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .confirm-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 28px;
+            border-radius: 3px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-gold { background: var(--gold); color: #080a0e; }
+        .btn-gold:hover { background: #f0c55a; }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(232,184,75,0.4);
+            color: var(--gold);
+        }
+        .btn-outline:hover { background: rgba(232,184,75,0.08); }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
