@@ -1,138 +1,19 @@
 
-<!-- CinemAura Footer -->
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-  .ca-footer {
-    background: #0d0d0d;
-    font-family: 'Barlow', sans-serif;
-    border-top: 1px solid #222;
-  }
-
-  .ca-footer-top {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2.5rem 2rem 2rem;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .ca-brand-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    letter-spacing: 2px;
-    color: #fff;
-    margin: 0 0 3px;
-  }
-  .ca-brand-name span { color: #c9a84c; }
-
-  .ca-tagline {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #c9a84c;
-    margin: 0 0 1rem;
-  }
-
-  .ca-desc {
-    font-size: 13px;
-    line-height: 1.8;
-    color: #666;
-    max-width: 260px;
-  }
-
-  .ca-col-title {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #c9a84c;
-    margin: 0 0 1.2rem;
-  }
-
-  .ca-social-row {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-
-  .ca-social-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    text-decoration: none;
-    color: #666;
-    transition: color 0.2s;
-  }
-
-  .ca-social-item i {
-    width: 38px;
-    height: 38px;
-    border: 1px solid #2a2a2a;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    color: #777;
-    transition: border-color 0.2s, color 0.2s;
-  }
-
-  .ca-social-item span {
-    font-size: 10px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-
-  .ca-social-item:hover i { border-color: #c9a84c; color: #c9a84c; }
-  .ca-social-item:hover span { color: #c9a84c; }
-
-  .ca-divider {
-    border: none;
-    border-top: 1px solid #1a1a1a;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .ca-footer-bottom {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1.2rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .ca-copy { font-size: 12px; color: #444; margin: 0; }
-  .ca-copy span { color: #c9a84c; }
-
-  .ca-credit { font-size: 11px; color: #444; margin: 0; }
-  .ca-credit span { color: #c9a84c; }
-
-  @media (max-width: 480px) {
-    .ca-footer-top { flex-direction: column; }
-    .ca-footer-bottom { flex-direction: column; align-items: flex-start; }
-  }
-</style>
+<link rel="stylesheet" href="../assets/css/footer.css">
 
 <footer class="ca-footer">
   <div class="ca-footer-top">
 
-    <!-- Brand -->
     <div>
       <p class="ca-brand-name">CINEMA<span>AURA</span></p>
       <p class="ca-tagline">Book Your Experience</p>
       <p class="ca-desc">Your premier destination for booking cinema seats. Gold, Platinum &amp; Box class — all in one place.</p>
     </div>
 
-    <!-- Social -->
+   
     <div>
       <p class="ca-col-title">Follow Us</p>
       <div class="ca-social-row">
