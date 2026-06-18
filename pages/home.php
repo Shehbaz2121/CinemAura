@@ -16,8 +16,10 @@
 <?php require '../includes/header.php'; ?>
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
-
+  <div class="hero-bg">
+  <img src="https://images7.alphacoders.com/133/1337622.jpg" class="hero-bg-img" alt="">
+  <div class="hero-overlay"></div>
+</div>
   <div class="film-strip">
     <?php for($i = 0; $i < 12; $i++): ?>
       <div class="strip-hole-row">
@@ -73,21 +75,21 @@
 <section class="section">
   <div class="section-header">
     <h2 class="section-title">Now <span>Showing</span></h2>
-    <a href="pages/movies.php" class="section-link">View All Movies</a>
+    <a href="movies.php" class="section-link">View All Movies</a>
   </div>
   <div class="movies-grid">
     <?php
+    require '../config/database.php';
       $movies = [
-        ['title' => 'Movie Title', 'genre' => 'Action', 'rating' => '8.2', 'year' => '2024', 'icon' => '🎬'],
-        ['title' => 'Movie Title', 'genre' => 'Drama',  'rating' => '7.9', 'year' => '2024', 'icon' => '🎭'],
-        ['title' => 'Movie Title', 'genre' => 'Sci-Fi',  'rating' => '9.1', 'year' => '2024', 'icon' => '🚀'],
-        ['title' => 'Movie Title', 'genre' => 'Horror',  'rating' => '7.4', 'year' => '2024', 'icon' => '👁️'],
+        ['title' => 'Movie Title', 'genre' => 'Action', 'rating' => '8.2', 'year' => '2024'],
+        ['title' => 'Movie Title', 'genre' => 'Drama',  'rating' => '7.9', 'year' => '2024'],
+        ['title' => 'Movie Title', 'genre' => 'Sci-Fi',  'rating' => '9.1', 'year' => '2024'],
+        ['title' => 'Movie Title', 'genre' => 'Horror',  'rating' => '7.4', 'year' => '2024'],
       ];
       foreach($movies as $i => $m):
     ?>
     <div class="movie-card" style="animation-delay: <?= $i * 0.1 ?>s">
       <div class="movie-poster-placeholder">
-        <div class="poster-icon"><?= $m['icon'] ?></div>
         <div class="poster-genre"><?= $m['genre'] ?></div>
       </div>
       <div class="movie-rating">★ <?= $m['rating'] ?></div>
@@ -112,20 +114,17 @@
   </div>
   <div class="classes-grid">
     <div class="class-card">
-      <div class="class-icon">🥇</div>
       <div class="class-name">Gold</div>
       <div class="class-desc">Premium recliner seats with extra legroom and dedicated service.</div>
       <div class="class-price">PKR 800</div>
     </div>
     <div class="class-card featured">
       <div class="class-badge">Most Popular</div>
-      <div class="class-icon">💎</div>
       <div class="class-name">Platinum</div>
       <div class="class-desc">Ultra-luxury pods with in-seat dining and a private lounge.</div>
       <div class="class-price">PKR 1,400</div>
     </div>
     <div class="class-card">
-      <div class="class-icon">📦</div>
       <div class="class-name">Box</div>
       <div class="class-desc">Private viewing boxes, perfect for families and groups.</div>
       <div class="class-price">PKR 2,500</div>
