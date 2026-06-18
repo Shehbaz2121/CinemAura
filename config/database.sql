@@ -1,9 +1,9 @@
 
 -- CinemAura Database
 CREATE DATABASE IF NOT EXISTS cinemaura;
-USE cinemaaura;
+USE cinemaura;
 
---USERS
+
 CREATE TABLE users (
     id         INT AUTO_INCREMENT PRIMARY KEY,
     full_name  VARCHAR(100) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
---MOVIES
+
 CREATE TABLE movies (
     id          INT AUTO_INCREMENT PRIMARY KEY,
     title       VARCHAR(150) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE movies (
     created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
---THEATERS
+
 CREATE TABLE theaters (
     id       INT AUTO_INCREMENT PRIMARY KEY,
     name     VARCHAR(100) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE theaters (
     capacity INT
 );
 
---SHOWS
+
 CREATE TABLE shows (
     id             INT AUTO_INCREMENT PRIMARY KEY,
     movie_id       INT NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE shows (
     FOREIGN KEY (theater_id) REFERENCES theaters(id) ON DELETE CASCADE
 );
 
--- BOOKINGS
+
 CREATE TABLE bookings (
     id         INT AUTO_INCREMENT PRIMARY KEY,
     user_id    INT NOT NULL,
