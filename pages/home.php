@@ -1,4 +1,11 @@
 <?php session_start();
+require '../config/database.php';
+
+$movieResult = mysqli_query($conn, "SELECT COUNT(*) AS total FROM movies WHERE status='showing'");
+$movieCount = mysqli_fetch_assoc($movieResult)['total'];
+
+$theaterResult = mysqli_query($conn, "SELECT COUNT(*) AS total FROM theaters");
+$theaterCount = mysqli_fetch_assoc($theaterResult)['total'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +24,9 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg">
-  <img src="https://images7.alphacoders.com/133/1337622.jpg" class="hero-bg-img" alt="">
-  <div class="hero-overlay"></div>
-</div>
+    <img src="https://images7.alphacoders.com/133/1337622.jpg" class="hero-bg-img" alt="">
+    <div class="hero-overlay"></div>
+  </div>
   <div class="film-strip">
     <?php for($i = 0; $i < 12; $i++): ?>
       <div class="strip-hole-row">
@@ -43,11 +50,11 @@
     </div>
     <div class="hero-stats">
       <div>
-        <div class="stat-num">50+</div>
+        <div class="stat-num"><?= $movieCount ?>+</div>
         <div class="stat-label">Movies</div>
       </div>
       <div>
-        <div class="stat-num">12</div>
+        <div class="stat-num"><?= $theaterCount ?></div>
         <div class="stat-label">Theaters</div>
       </div>
       <div>
@@ -79,28 +86,33 @@
   </div>
   <div class="movies-grid">
     <?php
-    require '../config/database.php';
-      $movies = [
-        ['title' => 'Movie Title', 'genre' => 'Action', 'rating' => '8.2', 'year' => '2024'],
-        ['title' => 'Movie Title', 'genre' => 'Drama',  'rating' => '7.9', 'year' => '2024'],
-        ['title' => 'Movie Title', 'genre' => 'Sci-Fi',  'rating' => '9.1', 'year' => '2024'],
-        ['title' => 'Movie Title', 'genre' => 'Horror',  'rating' => '7.4', 'year' => '2024'],
-      ];
+      $result = mysqli_query($conn, "SELECT * FROM movies WHERE status='showing'");
+      $movies = mysqli_fetch_all($result, MYSQLI_ASSOC);
       foreach($movies as $i => $m):
     ?>
     <div class="movie-card" style="animation-delay: <?= $i * 0.1 ?>s">
-      <div class="movie-poster-placeholder">
-        <div class="poster-genre"><?= $m['genre'] ?></div>
-      </div>
-      <div class="movie-rating">★ <?= $m['rating'] ?></div>
+
+      <?php if (!empty($m['poster'])): ?>
+        <img 
+          src="/cinemaura/assets/images/<?= htmlspecialchars($m['poster']) ?>"
+          alt="<?= htmlspecialchars($m['title']) ?>"
+          class="movie-poster"
+        >
+      <?php else: ?>
+        <div class="movie-poster-placeholder">
+          <div class="poster-genre"><?= htmlspecialchars($m['genre']) ?></div>
+        </div>
+      <?php endif; ?>
+
+      <div class="movie-rating">★ <?= htmlspecialchars($m['rating']) ?></div>
       <div class="movie-overlay">
-        <div class="movie-title"><?= $m['title'] ?></div>
-        <div class="movie-meta"><?= $m['genre'] ?> · <?= $m['year'] ?></div>
-        <a href="pages/booking.php" class="btn btn-gold" style="font-size:11px; padding:8px 18px;">Book Now</a>
+        <div class="movie-title"><?= htmlspecialchars($m['title']) ?></div>
+        <div class="movie-meta"><?= htmlspecialchars($m['genre']) ?> · <?= htmlspecialchars($m['year']) ?></div>
+        <a href="booking.php?id=<?= $m['id'] ?>" class="btn btn-gold" style="font-size:11px; padding:8px 18px;">Book Now</a>
       </div>
       <div class="card-bottom">
-        <div class="card-title-visible"><?= $m['title'] ?></div>
-        <div class="card-sub"><?= $m['genre'] ?> · <?= $m['year'] ?></div>
+        <div class="card-title-visible"><?= htmlspecialchars($m['title']) ?></div>
+        <div class="card-sub"><?= htmlspecialchars($m['genre']) ?> · <?= htmlspecialchars($m['year']) ?></div>
       </div>
     </div>
     <?php endforeach; ?>

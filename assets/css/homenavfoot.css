@@ -301,14 +301,12 @@
     .movie-card:nth-child(3) { animation-delay: 0.2s; }
     .movie-card:nth-child(4) { animation-delay: 0.3s; }
 
-    .movie-poster {
-      width: 100%;
-      aspect-ratio: 2/3;
-      object-fit: cover;
-      display: block;
-      background: var(--bg3);
-      position: relative;
-    }
+   .movie-poster {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+}
 
     .movie-poster-placeholder {
       width: 100%;
