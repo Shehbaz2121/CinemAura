@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../config/database.php';
 
 // get movie id from URL

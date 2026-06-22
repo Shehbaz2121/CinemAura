@@ -73,7 +73,7 @@ $genres = mysqli_query($conn, "SELECT DISTINCT genre FROM movies WHERE status = 
             <div class="movie-overlay">
                 <div class="overlay-title"><?= $movie['title'] ?></div>
                 <div class="overlay-meta"><?= $movie['genre'] ?> · <?= $movie['year'] ?> · <?= $movie['duration'] ?>min</div>
-                <a href="booking.php" class="btn-book-now">Book Now</a>
+                <a href="movie-detail.php?id=<?= $movie['id'] ?>" class="btn-book-now">Details</a>
             </div>
 
             <div class="movie-info">
