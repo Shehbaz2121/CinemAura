@@ -2,10 +2,8 @@
 require '../includes/auth-check.php';
 require '../config/database.php';
 
-$success = '';
 $error   = '';
 
-// fetch showing movies
 $movies = mysqli_query($conn, "SELECT id, title FROM movies WHERE status = 'showing'");
 
 // fetch all shows with movie and theater info
@@ -38,13 +36,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $total = ($tickets * $price) + ($kids * $price * $kids_discount);
 
     // save booking
-    $stmt = mysqli_prepare($conn, "INSERT INTO bookings (user_id, show_id, seat_class, tickets, kids, total) VALUES (?,?,?,?,?,?)");
-    mysqli_stmt_bind_param($stmt, 'iissiid', $user_id, $show_id, $seat_class, $tickets, $kids, $total);
+   $stmt = mysqli_prepare($conn, "INSERT INTO bookings (user_id, show_id, seat_class, tickets, kids, total, status) VALUES (?,?,?,?,?,?,'pending')");
+   mysqli_stmt_bind_param($stmt, 'iisiid', $user_id, $show_id, $seat_class, $tickets, $kids, $total);
 
-    if(mysqli_stmt_execute($stmt)){
-        $success = "Booking confirmed! Total: PKR " . number_format($total, 2);
-    } else {
+    if(!mysqli_stmt_execute($stmt)){
         $error = "Something went wrong. Please try again.";
+    } else {
+        $booking_id = mysqli_insert_id($conn);
+        header('Location: payment.php?booking_id=' . $booking_id);
+        exit();
     }
 }
 ?>

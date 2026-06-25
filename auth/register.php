@@ -98,6 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="form-wrap">
       <h1 class="form-heading">Create Account</h1>
       <p class="form-sub">Already have one? <a href="login.php">Sign in →</a></p>
+      <p class="form-sub"><a href="../pages/home.php">← Back to Home</a></p>
 
       <?php if (!empty($errors)): ?>
         <div class="alert alert-error">

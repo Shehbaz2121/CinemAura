@@ -45,8 +45,12 @@ $theaterCount = mysqli_fetch_assoc($theaterResult)['total'];
       Book your seats in seconds. Watch trailers, read reviews, and choose from Gold, Platinum or Box — all from your couch.
     </p>
     <div class="hero-actions">
+      <?php if(!isset($_SESSION['user_id'])): ?>
       <a href="movies.php" class="btn btn-gold">Browse Movies</a>
       <a href="../auth/register.php" class="btn btn-outline">Create Account</a>
+      <?php else: ?>
+        <a href="movies.php" class="btn btn-gold">Browse Movies</a>
+        <?php endif; ?>
     </div>
     <div class="hero-stats">
       <div>
@@ -108,7 +112,7 @@ $theaterCount = mysqli_fetch_assoc($theaterResult)['total'];
       <div class="movie-overlay">
         <div class="movie-title"><?= htmlspecialchars($m['title']) ?></div>
         <div class="movie-meta"><?= htmlspecialchars($m['genre']) ?> · <?= htmlspecialchars($m['year']) ?></div>
-        <a href="booking.php?id=<?= $m['id'] ?>" class="btn btn-gold" style="font-size:11px; padding:8px 18px;">Book Now</a>
+        <a href="movie-detail.php?id=<?= $m['id'] ?>" class="btn btn-gold" style="font-size:11px; padding:8px 18px;">Details</a>
       </div>
       <div class="card-bottom">
         <div class="card-title-visible"><?= htmlspecialchars($m['title']) ?></div>
@@ -180,8 +184,12 @@ $theaterCount = mysqli_fetch_assoc($theaterResult)['total'];
   <h2>READY TO <span>BOOK?</span></h2>
   <p>Create a free account and start booking your cinema experience today.</p>
   <div class="cta-actions">
+    <?php if(!isset($_SESSION['user_id'])): ?>
     <a href="../auth/register.php" class="btn btn-gold">Get Started Free</a>
     <a href="../pages/movies.php" class="btn btn-outline">Browse Movies</a>
+    <?php else: ?>
+      <a href="../pages/movies.php" class="btn btn-outline">Browse Movies</a>
+      <?php endif; ?>
   </div>
 </section>
 

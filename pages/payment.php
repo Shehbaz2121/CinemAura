@@ -26,8 +26,10 @@ if(!$booking){
 }
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    // simulate payment — always succeeds
-    header('Location: confirmation.php');
+    $update = mysqli_prepare($conn, "UPDATE bookings SET status = 'confirmed' WHERE id = ?");
+    mysqli_stmt_bind_param($update, 'i', $booking_id);
+    mysqli_stmt_execute($update);
+    header('Location: confirmation.php?booking_id=' . $booking_id);
     exit();
 }
 ?>
@@ -39,6 +41,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <title>Payment – CinemAura</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="../assets/css/homenavfoot.css"/>
+    <link rel="stylesheet" href="../assets/css/payment.css">
    
 </head>
 <body>
